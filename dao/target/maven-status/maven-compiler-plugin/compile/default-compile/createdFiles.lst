@@ -1,0 +1,4 @@
+com\prasad\dao\common\CRUDDao.class
+com\prasad\dao\hibernate\NewsDaoImpl.class
+com\prasad\dao\common\hibernate\CRUDDaoImpl.class
+com\prasad\dao\NewsDao.class
