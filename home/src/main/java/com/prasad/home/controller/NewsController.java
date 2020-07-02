@@ -27,6 +27,7 @@ public class NewsController {
 
     @PutMapping(value = "/create")
     public ResponseWrapper createNews(@RequestBody NewsDto news) {
+
         logger.info(">> Create News for home page");
         return ResponseWrapper.success(newsService.createNews(news));
     }
