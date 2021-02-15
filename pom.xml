@@ -62,4 +62,56 @@
 
     </dependencies>
 
+  <build>
+    <finalName>predictor</finalName>
+
+    <plugins>
+      <plugin>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-webapp-maven-plugin</artifactId>
+        <version>1.8.0</version>
+        <configuration>
+          <schemaVersion>V2</schemaVersion>
+          <resourceGroup>cloud-provider-selector-linux</resourceGroup>
+          <appName>cloud-provider-selector-backend</appName>
+          <region>eastus</region>
+          <pricingTier>P1V2</pricingTier>
+          <runtime>
+            <os>linux</os>
+            <javaVersion>jre8</javaVersion>
+            <webContainer>jre8</webContainer>
+          </runtime>
+          <!-- Begin of App Settings  -->
+          <appSettings>
+            <property>
+              <name>JAVA_OPTS</name>
+              <value>-Dserver.port=80</value>
+            </property>
+          </appSettings>
+          <!-- End of App Settings  -->
+          <deployment>
+            <resources>
+              <resource>
+                <directory>${project.basedir}/target</directory>
+                <includes>
+                  <include>*.jar</include>
+                </includes>
+              </resource>
+            </resources>
+          </deployment>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+    </plugins> 
+  </build>  
+  <repositories> 
+    <repository> 
+      <id>spring-milestones</id>  
+      <name>Spring Milestones</name>  
+      <url>https://repo.spring.io/milestone</url> 
+    </repository> 
+  </repositories> 
 </project>
